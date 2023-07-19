@@ -2,6 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+```bash
+
+to get to the register page redirect to '/register'
+to get to the all users page redirect to '/all_users'
+
+```
+
 First, run the development server:
 
 ```bash
