@@ -12,7 +12,7 @@ const AllUsers = async ({
         }
     })
 
-    const data = users.map((user) => (
+    users.map((user) => (
         <div className="flex mb-2 p-2">
             <div className="p-2"> <span> User Emails: </span>{user.email}</div>
             <div className="p-2"> <span> User Id: </span>{user.id}</div>
