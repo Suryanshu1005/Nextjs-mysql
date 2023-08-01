@@ -8,14 +8,6 @@ export function getSessionUser() {
     return '{}';
   }
 
-// export function setSessionUser() {
-//     const token = getSessionUser()
-//     const xyz = localStorage.setItem('access_token', token)
-// }
-
-
-  // jwtUtils.js
-
 export function decodeJWT(token : any) {
   try {
     return jwt.decode(token);

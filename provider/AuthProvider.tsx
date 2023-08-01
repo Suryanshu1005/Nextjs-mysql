@@ -14,8 +14,6 @@ const AuthProvider = ({
     const [loading, setLoading] = useState(true);
     const { push } = useRouter();
 
-    console.log('dfaskhdfas', userData)
-
     useEffect(() => {
         (async () => {
             const { user, error } = await getUser();
@@ -29,9 +27,6 @@ const AuthProvider = ({
         })();
     }, [push])
 
-    console.log("this is auth")
-
-    console.log("____user", userData?.user)
     if (loading) {
         return (
             <div>
@@ -43,10 +38,6 @@ const AuthProvider = ({
             </div>
         );
     }
-
-    console.log('Hello world')
-
-
 
     return <AuthContext.Provider value={userData}>{children}</AuthContext.Provider>
 }

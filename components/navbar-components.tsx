@@ -6,8 +6,6 @@ import { useContext } from "react";
 import { AuthContext } from "@/provider/AuthProvider";
 import { useParams, usePathname } from "next/navigation";
 
-import axios from "axios";
-
 const NavbarComponents = () => {
 
     const { user, error } = useContext(AuthContext);
