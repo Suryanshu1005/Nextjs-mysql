@@ -11,9 +11,9 @@ export const SuggestionClient: React.FC<SuggestionClientProps> = ({ data }) => {
     return (
         <>
             <div>
-                <h2>Total Suggestions {data.length}</h2>
+                <h2 className="font-bold text-lg">Total Suggestions {data.length}</h2>
             </div>
-            <DataTable  searchKey="title" columns={columns} data={data}/>
+            <DataTable searchKey="title" columns={columns} data={data}/>
         </>
     )
 }

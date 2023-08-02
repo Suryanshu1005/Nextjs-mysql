@@ -16,11 +16,12 @@ const NavbarComponents = () => {
         {
             href: `/${params.userid}/homepage`,
             lables: 'Home',
-            active: pathname === `/${params.userid}`
+            active: pathname === `/${params.userid}/homepage`
         },
         {
             href: `/${params.userid}/profile`,
             lables: 'About us',
+            active: pathname === `/${params.userid}/profile`
         },
         {
             href: '#',
@@ -29,6 +30,7 @@ const NavbarComponents = () => {
         {
             href: `/${params.userid}/suggestions`,
             lables: 'Have a suggestion?',
+            active: pathname === `/${params.userid}/suggestions`
         },
     ]
     return (
@@ -36,10 +38,12 @@ const NavbarComponents = () => {
             {
                 routes.map((item) => (
                     <Link
+                        key={item.href}
                         href={item.href}
                         className={
                             cn(
-                                "hover:text-red-700 hover:font-bold"
+                                "text-md font-medium transition-colors hover:text-primary",
+                                item.active ? "text-black dark:text-white" : "text-muted-foreground"
                             )
                         }
                     >

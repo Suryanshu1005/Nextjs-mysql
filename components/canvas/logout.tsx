@@ -12,7 +12,7 @@ const Logout = () => {
             if (response) {
                 toast.success('logged out successfully')
             }
-            router.push('/')
+            router.replace('/')
         } catch (error) {
             console.log('error: ', error)
         }

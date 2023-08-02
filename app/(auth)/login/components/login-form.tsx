@@ -18,7 +18,7 @@ const LoginForm = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [buttonDisabled, setButtonDisabled] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false)
 
 
     const handleSubmit = async () => {
@@ -43,7 +43,7 @@ const LoginForm = () => {
             })
 
             if (response.data && response.data.success) {
-                router.push(`/${ID?.id}/profile`);
+                router.push(`/${ID?.id}/homepage`);
             } else if (response.data && response.data.userNotFound) {
                 toast.error('User does not exist.');
             } else {
@@ -66,7 +66,7 @@ const LoginForm = () => {
     }, []);
 
     return (
-        <div className="grid justify-center items-center w-full max-w h-[100%] bg-gradient-to-t from-green-50 via-red-50">
+        <div className="flex min-h-screen justify-center items-center w-full max-w h-fit bg-gradient-to-t from-green-50 via-red-50">
             <div className="bg-white p-20 bg-green-400/20 bg-origin-border rounded-xl shadow-slate-300 border-red-200">
                 <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 bg-blue-300/50">
                     <div className="mb-4">

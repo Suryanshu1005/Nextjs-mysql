@@ -36,15 +36,15 @@ const SuggestionPage = () => {
         }
     }
     return (
-        <div className="p-20 w-[50%]">
-            <Spacer y={2} />
+        <div className="w-[50%] p-32">
+            <h2 className="flex text-[50px] items-center justify-center mt-[-45px]">We believe in your Suggestions for us.</h2>
+            <Spacer y={3} />
             <div className="ml-5">
                 <Input
                     color="success"
                     clearable
                     underlined
                     labelPlaceholder="Title"
-                    placeholder="I think ..."
                     size="md"
                     width="20rem"
                     fullWidth

@@ -18,7 +18,7 @@ const Homepage = async ({
     }
   });
 
-  const formattedSuggestions: SuggestionColumn[] = suggestions.map((item) => ({
+  const formattedSuggestions: SuggestionColumn[] = suggestions.map((item, key) => ({
     id: item.id,
     title: item.title,
     description: item.description,
@@ -27,8 +27,8 @@ const Homepage = async ({
 
   return (
     <div className="flex-1">
-      <div className="flex-col space-y-4 p-8 pt-6">
-        <SuggestionClient data={formattedSuggestions} />
+      <div className="flex-col space-y-2 p-32 pt-10">
+        <SuggestionClient key="" data={formattedSuggestions} />
       </div>
     </div>
   )
