@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 
 interface User {
   user: string,
-  username: any,
+  username: string,
   id: string,
 }
 

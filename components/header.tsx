@@ -15,7 +15,7 @@ const Header = () => {
                         <Popover.Trigger>
                             <User
                                 src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                                name={user?.user.username}
+                                name={user?.username}
                                 zoomed
                                 bordered
                                 color="gradient"
