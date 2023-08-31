@@ -52,7 +52,7 @@ const RegistrationForm = () => {
         } else {
             setButtonDisabled(true);
         }
-    }, []);
+    }, [email.length, password.length, username.length]);
 
     return (
         <div className="flex lg:text-center justify-center items-center min-h-screen p-6">

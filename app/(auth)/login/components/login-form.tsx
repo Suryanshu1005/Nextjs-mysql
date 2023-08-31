@@ -63,7 +63,7 @@ const LoginForm = () => {
         } else {
             setButtonDisabled(true);
         }
-    }, []);
+    }, [email.length, password.length]);
 
     return (
         <div className="flex min-h-screen justify-center items-center w-full max-w h-fit bg-gradient-to-t from-green-50 via-red-50">
