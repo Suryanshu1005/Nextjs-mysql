@@ -26,6 +26,7 @@ import { Input } from "../ui/input"
 import Link from "next/link"
 import { Button } from "@nextui-org/react"
 import { useParams } from "next/navigation"
+import { useCard } from "@nextui-org/react/types/card/use-card"
 
 
 interface DataTableProps<TData, TValue> {
@@ -46,6 +47,7 @@ export function DataTable<TData, TValue>({
 
     const refer = useParams()
 
+
     const table = useReactTable({
         data,
         columns,
@@ -60,7 +62,7 @@ export function DataTable<TData, TValue>({
 
     return (
         <div>
-            <div className="flex items-center py-4">
+            <div className="grid grid-cols-2 py-4">
                 <Input
                     placeholder="Search"
                     value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
@@ -70,7 +72,7 @@ export function DataTable<TData, TValue>({
                     className="max-w-sm"
                 />
             </div>
-            <div className="rounded-md border w-100 mb-10">
+            <div className="rounded-3xl from-amber-400 via-amber-700 border border-spacing-1 w-100 mb-10">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
@@ -115,13 +117,6 @@ export function DataTable<TData, TValue>({
                 </Table>
 
             </div>
-            <Link 
-            className="flex w-5"
-            href={`/${refer.userid}/suggestions`}>
-                <Button auto color="secondary">
-                    Add a new Suggestion
-                </Button>
-            </Link>
         </div>
     )
 }

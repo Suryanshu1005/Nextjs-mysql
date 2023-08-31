@@ -60,3 +60,46 @@ export async function GET(
         return new NextResponse("Internal error", { status: 500 });
     }
 }
+
+export async function PATCH(
+    req: Request,
+    { params }: { params: { suggestionId: string, userid: string } }
+) {
+    try {
+
+        const body = await req.json();
+
+        const { title, description } = body;
+        if (!params.suggestionId) {
+            return new NextResponse("Suggestion Id is required", { status: 400 })
+        }
+
+        if (!params.userid) {
+            return new NextResponse("Unauthenticated", { status: 403 });
+        }
+
+        if (!title) {
+            return new NextResponse("Title is required", { status: 400 });
+        }
+
+        if (!description) {
+            return new NextResponse("Description is required", { status: 400 });
+        }
+
+        const suggestionsUpdate = await prismadb.suggestion.update({
+            where : {
+                id : params.suggestionId
+            },
+            data: {
+                title,
+                description,
+                userId: params.userid
+            }
+        })
+
+        return NextResponse.json(suggestionsUpdate)
+    } catch (error) {
+        console.log("[Suggestion_PATCH]", error)
+        return new NextResponse("Internal Error", { status: 500 })
+    }
+}

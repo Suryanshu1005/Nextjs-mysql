@@ -43,7 +43,7 @@ const LoginForm = () => {
             })
 
             if (response.data && response.data.success) {
-                router.push(`/${ID?.id}/homepage`);
+                router.push(`/${ID?.id}/suggestions`);
             } else if (response.data && response.data.userNotFound) {
                 toast.error('User does not exist.');
             } else {

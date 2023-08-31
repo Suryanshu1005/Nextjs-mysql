@@ -30,7 +30,7 @@ const AuthProvider = ({
     if (loading) {
         return (
             <div>
-                <Grid.Container gap={2} justify="center" alignItems="center" className="h-[100%]">
+                <Grid.Container key={2} gap={2} justify="center" alignItems="center" className="h-[100%]">
                     <Grid>
                         <Loading type="gradient" />
                     </Grid>

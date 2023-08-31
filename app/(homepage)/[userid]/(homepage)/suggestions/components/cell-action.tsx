@@ -23,11 +23,13 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
   const params = useParams()
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState('')
 
   const onConfirm = async () => {
     try {
       setLoading(true)
-      await axios.delete(`/api/${params.userid}/suggestions/${data.id}`)
+      const response = await axios.delete(`/api/${params.userid}/suggestions/${data.id}`)
+      setUser(response.data)
       toast.success('Suggestion Deleted');
       router.refresh();
     } catch (error) {
@@ -61,14 +63,17 @@ export const CellAction: React.FC<CellActionProps> = ({ data }) => {
           variant="faded"
           >
             <div className="flex justify-center items-center">
-              <Button color="secondary" flat className="flex items-center justify-center mb-2 mt-2 ">Edit suggestion</Button>
+              <Button
+               color="secondary" 
+               flat className="flex items-center justify-center mb-2 mt-2 "
+               onPress={() => router.push(`/${params.userid}/suggestions/${data.id}`)}
+               >Edit suggestion</Button>
             </div>
           </DropdownItem>
           <DropdownItem
-            onPress={onConfirm}
           >
             <div className="flex justify-center items-center">
-              <Button color="error" flat className="flex items-center justify-center mb-2 mt-2 ml-2 mr-2">Delete suggestion</Button>
+              <Button onPress={onConfirm} color="error" flat className="flex items-center justify-center mb-2 mt-2 ml-2 mr-2">Delete suggestion</Button>
             </div>
           </DropdownItem>
         </DropdownMenu>

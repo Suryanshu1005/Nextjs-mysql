@@ -14,9 +14,9 @@ const NavbarComponents = () => {
 
     const routes = [
         {
-            href: `/${params.userid}/homepage`,
-            lables: 'Home',
-            active: pathname === `/${params.userid}/homepage`
+            href: `/${params.userid}/suggestions`,
+            lables: 'Suggestions',
+            active: pathname === `/${params.userid}/suggestions`
         },
         {
             href: `/${params.userid}/profile`,
@@ -24,17 +24,17 @@ const NavbarComponents = () => {
             active: pathname === `/${params.userid}/profile`
         },
         {
-            href: '#',
+            href: '',
             lables: 'What we do?',
         },
         {
-            href: `/${params.userid}/suggestions`,
+            href: "",
             lables: 'Have a suggestion?',
-            active: pathname === `/${params.userid}/suggestions`
+            // active: pathname === `/${params.userid}/suggestions`
         },
     ]
     return (
-        <div className="flex m-2 gap-4">
+        <div className="flex m-2 gap-4 md:float-right">
             {
                 routes.map((item) => (
                     <Link

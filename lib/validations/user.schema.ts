@@ -47,5 +47,14 @@ export const LoginUserSchema = z.object({
     .min(8, "Password must be at least 8 characters"),
 });
 
+export const SuggestionInput = z.object({
+  title : z.string({
+    required_error : "Please add a title"
+  }).min(5).max(100),
+  description : z.string({
+    required_error : ("Please enter a description.")
+  }).min(30).max(1000)
+})
+
 export type LoginUserInput = z.infer<typeof LoginUserSchema>;
 export type RegisterUserInput = z.infer<typeof RegisterUserSchema>;
