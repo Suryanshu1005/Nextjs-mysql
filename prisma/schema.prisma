@@ -3,12 +3,28 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model user {
-  id       String    @id @default(uuid())
-  email    String @unique(map: "User_email_key") @db.VarChar(225)
-  password String @db.VarChar(225)
+model User {
+  id         String       @id @default(uuid())
+  username   String       @db.VarChar(20)
+  email      String       @unique(map: "User_email_key") @db.VarChar(225)
+  suggestion Suggestion[] @relation("Suggestion to user")
+  password   String       @db.VarChar(225)
+  password2  String       @db.VarChar(225)
+}
+
+model Suggestion {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation("Suggestion to user", fields: [userId], references: [id])
+  title       String    @db.VarChar(100)
+  description String    @db.VarChar(1000)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
 }
