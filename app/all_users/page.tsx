@@ -44,15 +44,3 @@ const AllUsers = async ({
 }
 
 export default AllUsers;
-
-
-export async function getServerSideProps(context : any) {
-
-    const session = await getSession(context)
-    console.log('session: ', session)
-    return {
-            props: {
-                data: session ? 'this is a navbar' : 'no navbar'
-            }
-        }
-}
