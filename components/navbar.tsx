@@ -9,5 +9,5 @@ const Navbar = () => {
         </>
     );
 }
-// try
+// try new
 export default Navbar;
